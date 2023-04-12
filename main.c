@@ -2,14 +2,8 @@
 
 int main()
 {
-    int x = 0;
-    
-    if (x)//x==true
-    {
-        printf("hi");
-    }
-    else
-        printf("how are you");
-    
-    return 0;
+   int i=10,x;
+   x = i--;
+   printf("x=%d i=%d",x,i);
+   return 0;
 }
