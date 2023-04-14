@@ -2,17 +2,20 @@
 
 int main()
 {
-    int n,i,a;
+    int n,i, a;
     scanf("%d",&n);
 
-    for ( i = 0; i < n; i++)
+    for ( i = 1; i <= n; i++)
     {
         scanf("%d",&a);
-        while(a!=0)
+
+        do
         {
             printf("%d ", a%10);
             a = a/10;
         }
+        while(a!=0);
+        
         printf("\n");
     }
     
