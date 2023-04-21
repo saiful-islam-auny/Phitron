@@ -7,9 +7,12 @@
 
 int main()
 {
-   char a[100]="auny";
+    char a[100],b[50];
+    scanf("%s %s",a,b);
+    
+    strcat(a,b);
 
-
-   printf("%d",a[0]);
-   return 0;
+    printf("%s %s",a,b);
+    
+    return 0;
 }

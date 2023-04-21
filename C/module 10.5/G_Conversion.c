@@ -6,7 +6,8 @@
 
 int main()
 {
-    char a[100001], i, j;
+    char a[100001];
+    int i, j;
     scanf("%s", a);
 
     for (i = 0; i < strlen(a); i++)

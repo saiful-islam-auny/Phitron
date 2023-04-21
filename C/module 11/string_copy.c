@@ -7,9 +7,11 @@
 
 int main()
 {
-   char a[100]="auny";
+    char a[100],b[100];
+    scanf("%s %s",a,b);
 
+    strcpy(a,b);
 
-   printf("%d",a[0]);
-   return 0;
+    printf("%s %s",a,b);
+    return 0;
 }
