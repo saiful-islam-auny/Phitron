@@ -7,9 +7,11 @@
 
 int main()
 {
-   char a[100]="auny";
-
-
-   printf("%d",a[0]);
+   char c;
+   while (scanf("%c",&c) != EOF)
+   {
+      printf("%c ",c);
+   }
+   
    return 0;
 }
