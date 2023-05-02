@@ -6,17 +6,17 @@
 #include <limits.h>
 #include <math.h>
 
-void sum(void)
+int char_to_ascii(char c)
 {
-    int a,b,s;
-    scanf("%d %d",&a,&b);
-    s = a+b;
-    printf("%d",s);
+    return c;
 }
 
 int main()
-{
-    sum();
+{   
+    char c;
+    scanf("%c",&c);
+    int value = char_to_ascii(c);
+    printf("%d",value);
 
     return 0;
 }

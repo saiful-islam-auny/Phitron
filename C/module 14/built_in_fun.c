@@ -19,10 +19,10 @@ int main()
     // int ans=sqrt(x);
     // printf("%d",ans);
 
-    int a,b;
-    scanf("%d %d",&a,&b);
-    double ans=pow(a*1.0,b*1.0);
-    printf("%lld\n",ans);
+    // int a,b;
+    // scanf("%d %d",&a,&b);
+    // int ans=pow(a*1.0,b*1.0);
+    // printf("%d\n",ans);
 
     // int x;
     // scanf("%d",&x);

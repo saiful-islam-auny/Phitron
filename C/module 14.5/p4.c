@@ -6,17 +6,18 @@
 #include <limits.h>
 #include <math.h>
 
-void sum(void)
+char small_to_cap(char c)
 {
-    int a,b,s;
-    scanf("%d %d",&a,&b);
-    s = a+b;
-    printf("%d",s);
+    return c-32;
 }
 
 int main()
-{
-    sum();
+{   
+    char c;
+    scanf("%c",&c);
+
+    c = small_to_cap(c);
+    printf("%c",c);
 
     return 0;
 }
