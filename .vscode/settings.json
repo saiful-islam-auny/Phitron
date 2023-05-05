@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "bitset": "c",
-        "chrono": "c",
-        "algorithm": "c",
-        "limits.h": "c",
-        "string.h": "c"
-    }
-}
