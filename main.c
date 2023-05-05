@@ -1,9 +1,12 @@
-#include <stdio.h>
-    void m()
+ #include <stdio.h>
+    void m(int *p)
     {
-        printf("hi");
+        int i = 0;
+        for(i = 0;i < 5; i++)
+        printf("%d\t", p[i]);
     }
-    int main()
+    void main()
     {
-        printf("hello");
+        int a[5] = {6, 5, 3};
+        m(&a);
     }
