@@ -6,17 +6,17 @@
 #include <limits.h>
 #include <math.h>
 
-int sum()
+int sub()
 {
     int a ,b,s;
     scanf("%d %d",&a,&b);
-    s = a+b;
+    s = a-b;
     return s;
 }
 
 int main()
 {
-    int result = sum();
+    int result = sub();
     printf("%d",result);
     return 0;
 }
