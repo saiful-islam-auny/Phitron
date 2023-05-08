@@ -1,12 +1,14 @@
 #include<stdio.h>
-void fun(int i)
+int fun(int i, int n)
 {
-    if(i==6) return;
-    fun(i+1);
+    if(i==n+1) return;
+    fun(i+1,n);
     printf("%d\n",i);
 }
 int main()
 {
-    fun(1);
+    int n;
+    scanf("%d",&n);
+    fun(1,n);
     return 0;
 }
