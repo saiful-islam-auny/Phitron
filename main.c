@@ -1,12 +1,15 @@
- #include <stdio.h>
-    void m(int *p)
-    {
-        int i = 0;
-        for(i = 0;i < 5; i++)
-        printf("%d\t", p[i]);
-    }
-    void main()
-    {
-        int a[5] = {6, 5, 3};
-        m(&a);
-    }
+#include<stdio.h>
+void f2()
+{
+    printf("f1 ");
+}
+void f1()
+{
+    printf("f2 ");
+    f2();
+}
+int main()
+{
+    printf("Main ");
+    f1();   
+}
