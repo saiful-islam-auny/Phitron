@@ -11,10 +11,10 @@ int main()
     int a,b,c;
     scanf("%d %d %d",&a,&b,&c);
 
-    if(a>0 && b>0 && c>0 && a==b && b==c && c==a)
-        printf("Yes");
-    else
+    if(a!=b || b!=c || a==0 && a==b && b==c)
         printf("No");
+    else
+        printf("Yes");
 
     return 0;
 }
