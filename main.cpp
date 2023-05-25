@@ -4,20 +4,10 @@ using namespace std;
 
 int main()
 {
-    char c;
-    cin>>c;
+    char a[100],b[100];
+    cin>>a>>b;
 
-    if(c>=48 && c<=57)
-    {
-        cout<<"IS DIGIT";
-    }
-    else if(c>=65 && c<=90)
-    {
-        cout<<"ALPHA\nIS CAPITAL";
-    }
-    else
-        cout<<"ALPHA\nIS SMALL";
-
-    
+    int value = strcmp(a,b);
+    cout<<value;
     return 0;
 }
