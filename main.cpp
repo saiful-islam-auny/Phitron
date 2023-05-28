@@ -1,13 +1,19 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-int main()
-{
-    char a[100],b[100];
-    cin>>a>>b;
+class MyClass {
+public:
+    char z; //1 byte
+    int x;  //4 byte
+    double y;   //8 byte
+};
 
-    int value = strcmp(a,b);
-    cout<<value;
+int main() {
+    MyClass obj;
+    
+    cout<<sizeof(obj.x)<<endl;
+    cout<<sizeof(obj.y)<<endl;
+    cout<<sizeof(obj.z)<<endl;
+    cout<<sizeof(obj);
     return 0;
 }
