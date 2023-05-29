@@ -9,12 +9,12 @@ int main()
     // cout<<a<<endl;
     // cout<<b<<endl;
     // a="HelloA"; -> works
-    a=a+" Auny"; //works
+    // a=a+" Auny"; //works
     // a[5]='A'; -> didn't work
     // a.push_back('A'); // works
     // a.pop_back();
     // a.pop_back();
-    cout<<a<<endl;
+    // cout<<a<<endl;
 
     // a="Gelo";
     // a.assign("Gelo");
