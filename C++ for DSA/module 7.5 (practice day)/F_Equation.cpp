@@ -10,7 +10,7 @@ int main()
     for (int i = 2; i <= n; i=i+2)
     {
         sum+= pow(x,i);
-        cout<<pow(x,i)<<endl;
+        // cout<<pow(x,i)<<endl;
     }
     cout<<sum;
     return 0;
