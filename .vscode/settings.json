@@ -6,5 +6,6 @@
         "ostream": "cpp",
         "random": "cpp",
         "cmath": "cpp"
-    }
+    },
+    "cph.general.onceMaintainerMessage": false
 }

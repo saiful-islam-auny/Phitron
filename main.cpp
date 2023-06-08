@@ -2,54 +2,26 @@
 
 using namespace std;
 
-class CustomSort    //cammel case
-{
-    public:
-    char c;
-    int cnt;
-};
-
-bool cmp(CustomSort a, CustomSort b)    //sorting function
-{
-    if(a.cnt>b.cnt) return true;
-    else
-        return false;
-}
-
 int main()
 {
-    CustomSort frq[26];
-
-    for (int i = 0; i < 26; i++)
-    {
-        frq[i].c = i+'a';
-        frq[i].cnt = 0;
-    }
-
-    int n;
-    cin>>n;
+    int n, q;
+    cin >> n >> q;
+    vector<int> v(n);
     for (int i = 0; i < n; i++)
     {
-        char c;
-        cin>>c;
-        frq[c-'a'].cnt++;
+        cin >> v[i];
     }
 
-    sort(frq, frq+26,cmp);
-    char alp;
-    for (int i = 0; i < 26; i++)
+    for (int j = 0; j < q; j++)
     {
-        if(frq[i].cnt>0)
+        int sum = 0, l, r;
+        cin >> l >> r;
+        for (auto i = v.begin() + l - 1; i < v.end() - (v.size() - r); i++)
         {
-            for (int j = 0; j < frq[i].cnt; j++)
-            {
-                alp = i+'a';
-                cout<<alp;
-            }
-            
+            sum += *i;
         }
+        cout << sum << endl;
     }
-    
-    
+
     return 0;
 }
