@@ -17,17 +17,12 @@ public:
 
 int main()
 {
-    Node* head = NULL;
+    Node *head = new Node(10);
+    Node *a = new Node(20); // a is a pointer that stored the the address
 
-    if(head == NULL)
-    {
-        cout<<"HEAD IS NULL";
-    }
+    head->next = a;
 
-    if(head->next == NULL)
-    {
-        cout<<"NEXT ADDRESS IS NULL";
-    }
-
+    cout<<head->val<<endl;
+    cout<<head->next->val<<endl;
     return 0;
 }

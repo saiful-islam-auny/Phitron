@@ -26,6 +26,5 @@ int main()
     else
         cout<<"YES";
     
-    
     return 0;
 }

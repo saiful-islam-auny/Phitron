@@ -17,17 +17,13 @@ public:
 
 int main()
 {
-    Node* head = NULL;
+    Node a(10);
+    Node b(20);
 
-    if(head == NULL)
-    {
-        cout<<"HEAD IS NULL";
-    }
+    a.next=&b;
 
-    if(head->next == NULL)
-    {
-        cout<<"NEXT ADDRESS IS NULL";
-    }
+    cout<<a.val<<endl;
+    cout<<a.next->val<<endl;
 
     return 0;
 }
