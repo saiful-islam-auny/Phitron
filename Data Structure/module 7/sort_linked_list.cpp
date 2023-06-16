@@ -1,60 +1,89 @@
 #include <bits/stdc++.h>
+
 using namespace std;
+
 class Node
 {
 public:
     int val;
     Node *next;
+
     Node(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
-void insert_tail(Node *&head, Node *&tail, int val)
+
+void insert_node(Node *&head, Node *&tail, int val)
 {
-    Node *newNode = new Node(val);
+    Node *NewNode = new Node(val);
     if (head == NULL)
     {
-        head = newNode;
-        tail = newNode;
-        return;
+        head = tail = NewNode;
     }
-    tail->next = newNode;
-    tail = newNode;
+    tail->next = NewNode;
+    tail = NewNode;
 }
-void print_linekd_list(Node *head)
+
+void print_list(Node* head)
 {
-    Node *tmp = head;
-    while (tmp != NULL)
+    Node* temp = head;
+    while (temp!=NULL)
     {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
+        cout<<temp->val<<" ";
+        temp = temp->next;
     }
-    cout << endl;
+    
 }
+
+void ascending_sort(Node* head)
+{
+    for (Node* i = head; i->next!=NULL; i=i->next)
+    {
+        for (Node* j = i->next; j!=NULL; j=j->next)
+        {
+            if(i->val>j->val)
+            {
+                swap(i->val,j->val);
+            }
+        }
+        
+    } 
+}
+
+void descending_sort(Node* head)
+{
+    for (Node* i = head; i->next!=NULL; i=i->next)
+    {
+        for (Node* j = i->next; j!=NULL; j=j->next)
+        {
+            if(i->val<j->val)
+            {
+                swap(i->val,j->val);
+            }
+        }
+        
+    } 
+}
+
 int main()
 {
     Node *head = NULL;
     Node *tail = NULL;
-    int val;
+
     while (true)
     {
+        int val;
         cin >> val;
         if (val == -1)
             break;
-        insert_tail(head, tail, val);
+
+        insert_node(head, tail, val);
     }
-    for (Node *i = head; i->next != NULL; i = i->next)
-    {
-        for (Node *j = i->next; j != NULL; j = j->next)
-        {
-            if (i->val < j->val)
-            {
-                swap(i->val, j->val);
-            }
-        }
-    }
-    print_linekd_list(head);
+
+    // ascending_sort(head);
+    descending_sort(head);
+    print_list(head);
     return 0;
 }
