@@ -40,7 +40,7 @@ void print_list(Node *head)
 
 void reverse_list(Node* n)
 {
-    if(n->next==NULL) return;
+    if(n==NULL) return;
     reverse_list(n->next);
     cout<<n->val<<" ";
 }
