@@ -15,19 +15,31 @@ public:
     }
 };
 
-void tail_insert(Node *&head, Node *&tail, int val) // O(1)
+void tail_insert(Node *&head, Node *&tail, Node *&head_cpy, Node *&tail_cpy, int val)
 {
     Node *NewNOde = new Node(val);
     if (head == NULL)
     {
         head = NewNOde;
+        head_cpy = head;
         tail = NewNOde;
+        tail_cpy = tail;
     }
     else
     {
-        tail->next = NewNOde; // new node linking with tail node
-        tail = NewNOde;       // tail updated
+        tail->next = NewNOde;
+        tail_cpy->next = NewNOde;
+        tail = NewNOde;
+        tail_cpy = NewNOde;
     }
+}
+
+void reverse_list(Node *n)
+{
+    if (n == NULL)
+        return;
+    reverse_list(n->next);
+    cout << n->val << " ";
 }
 
 void print_list(Node *head)
@@ -46,16 +58,20 @@ int main()
     Node *head = NULL;
     Node *tail = NULL;
 
+    Node *head_cpy = NULL;
+    Node *tail_cpy = NULL;
+
     while (true)
     {
         int val;
         cin >> val;
         if (val == -1)
             break;
-        tail_insert(head, tail, val);
+        tail_insert(head, tail, head_cpy, tail_cpy, val);
     }
 
-    cout << "Linked list: ";
+    reverse_list(head_cpy);
+    cout<<endl;
     print_list(head);
 
     return 0;
