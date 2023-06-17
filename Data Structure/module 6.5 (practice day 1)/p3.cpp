@@ -38,6 +38,7 @@ int size(Node* head)
     }
     return count;
 }
+
 void print_mid(Node* head)
 {
     Node* temp = head;
