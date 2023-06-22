@@ -23,6 +23,7 @@ void head_insert(Node *&head, Node *&tail, int val) // O(1)
     {
         head = NewNOde;
         tail = NewNOde;
+        return;
     }
 
     NewNOde->next = head;

@@ -22,12 +22,11 @@ void tail_insert(Node *&head, Node *&tail, int val) // O(1)
     {
         head = NewNOde;
         tail = NewNOde;
+        return;
     }
-    else
-    {
-        tail->next = NewNOde; // new node linking with tail node
-        tail = NewNOde;       // tail updated
-    }
+
+    tail->next = NewNOde; // new node linking with tail node
+    tail = NewNOde;       // tail updated
 }
 
 void print_list(Node *head)
