@@ -20,8 +20,7 @@ int main()
 
     head->next = a;
     a->next = b;
-    b->next = c;
-    c->next = a;
+    b->next = c; 
 
     Node *slow = head;
     Node *fast = head;

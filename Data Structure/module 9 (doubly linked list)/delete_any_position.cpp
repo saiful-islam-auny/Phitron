@@ -62,18 +62,24 @@ int size(Node *head)
     return count;
 }
 
-void delete_head(Node* &head)
+void delete_head(Node *&head, Node *&tail)
 {
-    Node* delehead = head;
+    Node *delehead = head;
     head = head->next;
-    head->previous = NULL;
     delete delehead;
     
+    if (head == NULL)
+    {
+        tail = NULL;
+        return;
+    }
+
+    head->previous = NULL;
 }
 
-void delete_tail(Node* &tail)
+void delete_tail(Node *&tail)
 {
-    Node* deletail = tail;
+    Node *deletail = tail;
     tail = tail->previous;
     tail->next = NULL;
     delete deletail;
@@ -94,28 +100,31 @@ int main()
     b->next = c;
     c->previous = b;
 
-    int pos;
-    cin >> pos;
 
-    if(pos>=size(head))
+    while (true)
     {
-        cout<<"invalid position"<<endl;
-    }
-    else if (pos == 0)
-    {
-        delete_head(head);
-    }
-    else if(pos==size(head)-1)
-    {
-        delete_tail(tail);
-    }
-    else
-        delete_at_position(head, pos);
- 
+        int pos;
+        cin >> pos;
 
-    print_normal(head);
-    cout << endl;
-    print_reverse(tail);
+        if (pos >= size(head))
+        {
+            cout << "invalid position" << endl;
+        }
+        else if (pos == 0)
+        {
+            delete_head(head,tail);
+        }
+        else if (pos == size(head) - 1)
+        {
+            delete_tail(tail);
+        }
+        else
+            delete_at_position(head, pos);
+
+        print_normal(head);
+        cout << endl;
+        // print_reverse(tail);
+    }
 
     return 0;
 }
