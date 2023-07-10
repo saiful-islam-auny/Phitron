@@ -6,7 +6,8 @@
         "ostream": "cpp",
         "random": "cpp",
         "cmath": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "*.tcc": "cpp"
     },
     "cph.general.onceMaintainerMessage": false
 }

@@ -1,2 +1,1 @@
-## Problem list downloaded and solved in profile (leetcode & codingninja
-)
+## Problem list downloaded and solved in profile (leetcode & codingninja)
