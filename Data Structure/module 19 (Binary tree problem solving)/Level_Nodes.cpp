@@ -2,6 +2,8 @@
 
 using namespace std;
 
+vector<int> v;
+
 class Node
 {
 public:
@@ -61,19 +63,44 @@ Node *input_tree()
     return root;
 }
 
-int findMin(Node* root) {
-    if (root == NULL)
-        return INT_MAX;
+void tracking_level(Node *root, int lvl)
+{
+    queue<pair<Node *, int>> q;
+    q.push({root, 0});
+    int level;
 
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
+    while (!q.empty())
+    {
+        pair<Node *, int> pr = q.front();
+        q.pop();
+        Node *node = pr.first;
+        level = pr.second;
 
-    return min(root->val, min(leftMin, rightMin));
+        if (level == lvl)
+        {
+            cout << pr.first->val << " ";
+        }
+
+        if (node->left)
+        {
+            q.push({node->left, level + 1});
+        }
+        if (node->right)
+        {
+            q.push({node->right, level + 1});
+        }
+    }
+    if (lvl > level)
+        cout << "Invalid";
 }
 
 int main()
 {
     Node *root = input_tree();
-    cout << findMin(root);
+    int lvl;
+    cin >> lvl;
+
+    if(root) tracking_level(root, lvl);
+
     return 0;
 }

@@ -2,6 +2,8 @@
 
 using namespace std;
 
+vector <int> v;
+
 class Node
 {
 public:
@@ -61,19 +63,40 @@ Node *input_tree()
     return root;
 }
 
-int findMin(Node* root) {
-    if (root == NULL)
-        return INT_MAX;
+void level_order(Node* root)
+{
+    queue <Node*> q;
+    q.push(root);
 
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
+    while (!q.empty())
+    {
+        Node *f = q.front();
+        q.pop();
 
-    return min(root->val, min(leftMin, rightMin));
+        v.push_back(f->val);
+
+        if(f->right) q.push(f->right);
+        if(f->left) q.push(f->left);
+    }
+    
 }
+
+
 
 int main()
 {
     Node *root = input_tree();
-    cout << findMin(root);
+    level_order(root);
+    
+    reverse(v.begin(),v.end());
+
+    if(root)
+    {
+        for (int ele : v)
+        {
+            cout<<ele<<" ";
+        }
+    }
+    
     return 0;
 }

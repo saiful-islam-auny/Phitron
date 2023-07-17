@@ -61,19 +61,30 @@ Node *input_tree()
     return root;
 }
 
-int findMin(Node* root) {
-    if (root == NULL)
-        return INT_MAX;
+int level_order_sum(Node* root)
+{
+    int sum = 0;
 
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
+    queue <Node*> q;
+    q.push(root);
 
-    return min(root->val, min(leftMin, rightMin));
+    while (!q.empty())
+    {
+        Node *f = q.front();
+        q.pop();
+
+        sum+=f->val;
+
+        if(f->left) q.push(f->left);
+        if(f->right) q.push(f->right);
+    }
+    return sum;
 }
 
 int main()
 {
-    Node *root = input_tree();
-    cout << findMin(root);
+    Node* root = input_tree();
+    cout<<level_order_sum(root);
+    
     return 0;
 }

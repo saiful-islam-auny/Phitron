@@ -61,19 +61,40 @@ Node *input_tree()
     return root;
 }
 
-int findMin(Node* root) {
+int max_leaf(Node *root)
+{
+    if (root == NULL)
+        return INT_MIN;
+
+    if (root->left == NULL && root->right == NULL)
+        return root->val;
+
+    int l_max = max_leaf(root->left);
+    int r_max = max_leaf(root->right);
+
+    return max(l_max, r_max);
+}
+
+int min_leaf(Node *root)
+{
     if (root == NULL)
         return INT_MAX;
 
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
+    if (root->left == NULL && root->right == NULL)
+        return root->val;
 
-    return min(root->val, min(leftMin, rightMin));
+    int l_min = min_leaf(root->left);
+    int r_min = min_leaf(root->right);
+
+    return min(l_min, r_min);
 }
+
 
 int main()
 {
     Node *root = input_tree();
-    cout << findMin(root);
+    
+    if(root) cout << max_leaf(root)<<" "<<min_leaf(root);
+
     return 0;
 }

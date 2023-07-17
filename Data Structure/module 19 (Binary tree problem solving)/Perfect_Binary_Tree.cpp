@@ -17,6 +17,7 @@ public:
     }
 };
 
+
 Node *input_tree()
 {
     int val;
@@ -61,19 +62,40 @@ Node *input_tree()
     return root;
 }
 
-int findMin(Node* root) {
+int max_height_count(Node* root)
+{
+    if(root == NULL) return 0;
+    
+    int l = max_height_count(root->left);
+    int r = max_height_count(root->right);
+
+    return max(l,r)+1;
+}
+
+int count(Node *root)
+{
     if (root == NULL)
-        return INT_MAX;
+        return 0;
 
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
-
-    return min(root->val, min(leftMin, rightMin));
+    int l = count(root->left);
+    int r = count(root->right);
+    if (l == 0 && r == 0)
+        return 1;
+    else
+        return l + r + 1;
 }
 
 int main()
 {
-    Node *root = input_tree();
-    cout << findMin(root);
+    Node* root = input_tree();
+    
+    int maxHeight = max_height_count(root);
+    int totalNode = count(root);
+
+    if(totalNode == pow(2,maxHeight)-1)
+        cout<<"YES";
+    else
+        cout<<"NO";
+        
     return 0;
 }
