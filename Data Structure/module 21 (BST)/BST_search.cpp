@@ -78,7 +78,7 @@ bool search(Node *root, int v)
 int main()
 {
     Node *root = input_tree();
-
+    
     if (search(root, 25))
         cout << "Found";
     else
