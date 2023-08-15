@@ -6,23 +6,19 @@ const int N = 1e5 + 5;
 vector<int> adj[N];
 bool check[N];
 
-int depth[N];
-int height[N];
-
 void dfs(int u)
 {
     check[u] = true;
-    // cout << u << " ";
+    cout<<u<<" ";
     for (int v : adj[u])
     {
         if (check[v] == false)
         {
-            depth[v] = depth[u] + 1;
             dfs(v);
-            height[u] = max(height[u], height[v] + 1);
         }
     }
 }
+
 
 int main()
 {
@@ -37,39 +33,19 @@ int main()
         adj[v].push_back(u);
     }
 
-    dfs(1);
-
+    int cc = 0;
     for (int i = 1; i <= n; i++)
     {
-        cout << "Depth " << i << ": " << depth[i] << endl;
+        if(check[i]==false)
+        {
+            cout<<"Component "<<cc+1<<" :";
+            dfs(i);
+            cc++;
+            cout<<endl;
+        }
     }
-    cout << endl;
 
-    for (int i = 1; i <= n; i++)
-    {
-        cout << "Height " << i << ": " << height[i] << endl;
-    }
+    cout<<"Total connected components: "<<cc;
 
     return 0;
 }
-
-/*
-9
-8
-1 2
-1 3
-2 4 
-2 5
-3 6
-6 7
-5 8
-8 9
-
-6
-5
-1 2
-1 3
-3 4
-3 5
-5 6
-*/
