@@ -5,11 +5,12 @@ using namespace std;
 const int N = 1e5 + 5;
 vector<int> adj[N];
 bool check[N];
+vector<int> cmpnt;
 
 void dfs(int u)
 {
     check[u] = true;
-    cout<<u<<" ";
+    cmpnt.push_back(u);
     for (int v : adj[u])
     {
         if (check[v] == false)
@@ -18,7 +19,6 @@ void dfs(int u)
         }
     }
 }
-
 
 int main()
 {
@@ -33,19 +33,27 @@ int main()
         adj[v].push_back(u);
     }
 
-    int cc = 0;
+    int c = 0;
     for (int i = 1; i <= n; i++)
     {
-        if(check[i]==false)
+        if (check[i] == false)
         {
-            cc++;
-            cout<<"Component "<<cc<<" :";
             dfs(i);
-            cout<<endl;
+            if (cmpnt.size() > 1)   // single node note allow
+            {
+                c++;
+                cout << "Component " << c << " : ";
+                for (int ele : cmpnt)
+                {
+                    cout << ele << " ";
+                }
+                cout << endl;
+                cmpnt.clear();
+            }
         }
     }
 
-    cout<<"Total connected components: "<<cc;
+    cout << "Total connected components: " << c;
 
     return 0;
 }
