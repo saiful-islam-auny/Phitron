@@ -28,7 +28,9 @@ void dijkstra(int src)
 
         int selectedNode = f.second;
 
-        if (visited[selectedNode]==false)
+        if (visited[selectedNode])
+            continue;
+            
         visited[selectedNode] = true;
 
         for (auto child : adj[selectedNode])
@@ -66,8 +68,9 @@ int main()
     //     cout<<-1<<endl;
     //     return 0;
     // }
-    for(int i=1;i<=nodes;i++){
-        cout<<"Distance of "<<i<<": "<<d[i]<<endl;
+    for (int i = 1; i <= nodes; i++)
+    {
+        cout << "Distance of " << i << ": " << d[i] << endl;
     }
 
     // int current = nodes;

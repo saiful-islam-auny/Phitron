@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Edge
+{
+public:
+    int u;
+    int v;
+    int w;
+    Edge(int u, int v, int w)
+    {
+        this->u = u;
+        this->v = v;
+        this->w = w;
+    }
+};
+
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+    vector<Edge> ve;
+
+    while (e--)
+    {
+        int u, v, w;
+        cin >> u >> v >> w;
+        Edge ed(u, v, w);
+        ve.push_back(ed);
+    }
+
+    int d[n + 1];
+    for (int i = 1; i <= n; i++)
+    {
+        d[i] = INT_MAX;
+    }
+    d[1] = 0;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < ve.size(); j++)
+        {
+            Edge ed = ve[j];
+            int u = ed.u;
+            int v = ed.v;
+            int w = ed.w;
+
+            if (d[u] != INT_MAX && d[u] + w < d[v])
+            {
+                d[v] = d[u] + w;
+            }
+        }
+    }
+    bool cycle = false;
+    for (int j = 0; j < ve.size(); j++)
+    {
+        Edge ed = ve[j];
+        int u = ed.u;
+        int v = ed.v;
+        int w = ed.w;
+
+        if (d[u] != INT_MAX && d[u] + w < d[v])
+        {
+            cycle = true;
+            break;
+        }
+    }
+
+    if (cycle)
+    {
+        cout << "Negative cycle exist";
+    }
+    else
+    {
+        for (int i = 1; i <= n; i++)
+        {
+            cout << "Node " << i << " : " << d[i] << endl;
+        }
+    }
+
+    return 0;
+}
