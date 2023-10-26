@@ -1,0 +1,1 @@
+{"name":"Local: d","url":"g:\\Programming\\PHITRON\\d.cpp","tests":[{"id":1697196263357,"input":"2 \naa \naa \nabc \nabd","output":"4 \n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"g:\\Programming\\PHITRON\\d.cpp","group":"local","local":true}

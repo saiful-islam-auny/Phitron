@@ -1,79 +1,36 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-class Node
-{
-public:
-    int val;
-    Node *left;
-    Node *right;
+int main() {
+    int T;
+    cin >> T;
 
-    Node(int val)
-    {
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
-    }
-};
+    for (int t = 1; t <= T; t++) {
+        int N;
+        cin >> N;
+        vector<int> arr(N);
 
-Node *input_tree()
-{
-    int val;
-    cin >> val;
-    Node *root;
-    if (val == -1)
-        root = NULL;
-    else
-        root = new Node(val);
-
-    queue<Node *> q;
-    if (root)
-        q.push(root);
-
-    while (!q.empty())
-    {
-        Node *p = q.front();
-        q.pop();
-
-        int l, r;
-        cin >> l >> r;
-        Node *myLeft;
-        Node *myRight;
-
-        if (l != -1)
-        {
-            myLeft = new Node(l);
-            p->left = myLeft;
+        for (int i = 0; i < N; i++) {
+            cin >> arr[i];
         }
 
-        if (r != -1)
-        {
-            myRight = new Node(r);
-            p->right = myRight;
+        int count = 0;
+        long long result = 0;
+
+        for (int i = 0; i < N; i++) {
+            int j = i;
+            while (j + 1 < N && arr[j] == arr[j + 1]) {
+                j++;
+            }
+            int len = j - i + 1;
+            result += (long long)(len * (len + 1)) / 2;
+            i = j;
         }
 
-        if (p->left)
-            q.push(p->left);
-        if (p->right)
-            q.push(p->right);
+        cout << "Case " << t << ": " << N * (N + 1) / 2 - result << endl;
     }
-    return root;
-}
 
-int findMin(Node* root) {
-    if (root == NULL)
-        return INT_MAX;
-
-    int leftMin = findMin(root->left);
-    int rightMin = findMin(root->right);
-
-    return min(root->val, min(leftMin, rightMin));
-}
-
-int main()
-{
-    Node *root = input_tree();
-    cout << findMin(root);
     return 0;
 }
