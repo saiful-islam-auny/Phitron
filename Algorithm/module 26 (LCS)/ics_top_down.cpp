@@ -38,7 +38,7 @@ int main()
         }
     }
 
-    lcs(a, a.size() - 1, b, b.size() - 1);
-    cout << dp[a.size()-1][b.size()-1];
+    cout<< lcs(a, a.size() - 1, b, b.size() - 1);
+    // cout << dp[a.size()-1][b.size()-1];
     return 0;
 }

@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 {
+    // LCS O(M x N)
     string a, b;
     cin >> a >> b;
     int n = a.size(), m = b.size();
@@ -51,6 +52,10 @@ int main()
         }
     }
     reverse(ans.begin(), ans.end());
-    cout << ans << endl;
+
+    if (a == ans)
+        cout << "Yes";
+    else
+        cout << "No";
     return 0;
 }

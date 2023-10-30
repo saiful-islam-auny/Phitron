@@ -2,9 +2,13 @@
 using namespace std;
 int main()
 {
-    string a, b;
-    cin >> a >> b;
-    int n = a.size(), m = b.size();
+    string a;
+    cin >> a;
+    int n = a.size();
+    string b = a;
+    reverse(b.begin(), b.end());
+    int m = b.size();
+
     int dp[n + 1][m + 1];
     for (int i = 0; i <= n; i++)
     {
