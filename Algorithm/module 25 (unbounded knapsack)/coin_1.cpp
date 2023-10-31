@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    int n;
+    int n; // s ke koto vabe banano jai weight gula sum kore
     cin >> n;
     int w[n];
     for (int i = 0; i < n; i++)
@@ -29,6 +29,8 @@ int main()
             }
         }
     }
+
     cout << dp[n][s] << endl;
+
     return 0;
 }
