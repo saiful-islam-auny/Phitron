@@ -1,0 +1,2 @@
+numbers.clear()
+print(numbers)
