@@ -32,8 +32,8 @@ def a_lot(num1,num2):
 
 
 def info(**all):
-    # print(all)
+    print(all)
     for key, value in all.items():
         print(key,":",value)
 
-# info(name='Auny', age='24')
+info(name='Auny', age='24')
