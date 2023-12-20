@@ -8,8 +8,7 @@ class Animal(ABC):
 
 # Create concrete subclasses (Dog and Cat) that inherit from the abstract class
 class Dog(Animal):
-    def __init__(self) -> None:
-        super().__init__()
+    def speak(self):
         return "Woof!"
 
 class Cat(Animal):
