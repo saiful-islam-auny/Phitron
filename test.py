@@ -1,24 +1,10 @@
-class Study:
-    def __init__(self,ssc,hsc) -> None:
-        self.ssc_result = ssc
-        self.hsc_result = hsc
-    def result(self):
-        print(f'SSC: {self.ssc_result} HSC: {self.hsc_result}')
+keywords = ['int','float','long','double','char','auto','else','switch','break','enum', 'register', 'typedef','case', 'extern', 'return', 'union','short', 'unsigned','const', 'for', 'signed', 'void','continue', 'goto', 'sizeof', 'volatile','default', 'if', 'static', 'while','do',  'struct', '_Packed']
 
-class Address:
-    def __init__(self,loc,num) -> None:
-        self.location = loc
-        self.number = num
-    def show_address(self):
-        print(f'Location: {self.location} Number: {self.number}')
+while(True):
+    s = input()
 
-class Person(Study, Address):
-    def __init__(self, ssc, hsc, loc, num, gender) -> None:
-        Study.__init__(self, ssc, hsc)
-        Address.__init__(self, loc, num)
-        self.gender = gender
+    if s[0].isdigit() or any(c in " !@#$%^&*()-+=[]}{|;:'\"<>,.?/~`" for c in s) or s in keywords:
+        print('Invalid varialbe')
+    else:
+        print('Valid varialbe')
 
-    
-auny = Person(4.72, 4.42, 'Khulna', 123, 'male')
-
-auny.show_address()
